@@ -20,37 +20,26 @@ class Tests: XCTestCase {
         let icons = [UIImage(named: "icon1")!, UIImage(named: "icon2")!, UIImage(named: "icon3")!]
 
         let frame = CGRect(x: 0, y: 114, width: 375, height: 44)
-        let segmentedControl = XMSegmentedControl(frame: frame, segmentContent: (titles, icons), selectedItemHighlightStyle: XMSelectedItemHighlightStyle.bottomEdge)
+        let segmentedControl = XMSegmentedControl(frame: frame, segmentContent: (titles, icons), selectedItemHighlightStyle: XMSelectedItemHighlightStyle.BottomEdge)
         XCTAssertEqual(titles, segmentedControl.segmentContent.text)
         XCTAssertEqual(icons.count, segmentedControl.segmentContent.icon.count)
-        XCTAssertEqual(segmentedControl.contentType, XMContentType.hybrid)
-    }
-
-    func testContentTypeHybridVertical() {
-        let titles = ["Hello", "World", "Two"]
-        let icons = [UIImage(named: "icon1")!, UIImage(named: "icon2")!, UIImage(named: "icon3")!]
-
-        let frame = CGRect(x: 0, y: 114, width: 375, height: 44)
-        let segmentedControl = XMSegmentedControl(frame: frame, verticalSegmentContent: (titles, icons), selectedItemHighlightStyle: XMSelectedItemHighlightStyle.bottomEdge)
-        XCTAssertEqual(titles, segmentedControl.segmentContent.text)
-        XCTAssertEqual(icons.count, segmentedControl.segmentContent.icon.count)
-        XCTAssertEqual(segmentedControl.contentType, XMContentType.hybridVertical)
+        XCTAssertEqual(segmentedControl.contentType, XMContentType.Hybrid)
     }
 
     func testContentTypeText() {
         let titles = ["Hello", "World", "Two"]
 
-        let segmentedControl = XMSegmentedControl(frame: CGRect(x: 0, y: 224, width: 375, height: 44), segmentTitle: titles, selectedItemHighlightStyle: XMSelectedItemHighlightStyle.topEdge)
+        let segmentedControl = XMSegmentedControl(frame: CGRect(x: 0, y: 224, width: 375, height: 44), segmentTitle: titles, selectedItemHighlightStyle: XMSelectedItemHighlightStyle.TopEdge)
         XCTAssertEqual(titles, segmentedControl.segmentTitle)
-        XCTAssertEqual(segmentedControl.contentType, XMContentType.text)
+        XCTAssertEqual(segmentedControl.contentType, XMContentType.Text)
     }
 
     func testContentTypeIcon() {
         let icons: [UIImage] = [UIImage(named: "icon1")!, UIImage(named: "icon2")!, UIImage(named: "icon3")!, UIImage(named: "icon4")!, UIImage(named: "icon5")!, UIImage(named: "icon6")!]
 
-        let segmentedControl = XMSegmentedControl(frame: CGRect(x: 0, y: 274, width: 375, height: 44), segmentIcon: icons, selectedItemHighlightStyle: XMSelectedItemHighlightStyle.background)
+        let segmentedControl = XMSegmentedControl(frame: CGRect(x: 0, y: 274, width: 375, height: 44), segmentIcon: icons, selectedItemHighlightStyle: XMSelectedItemHighlightStyle.Background)
         XCTAssertEqual(icons, segmentedControl.segmentIcon)
-        XCTAssertEqual(segmentedControl.contentType, XMContentType.icon)
+        XCTAssertEqual(segmentedControl.contentType, XMContentType.Icon)
     }
 
 }
